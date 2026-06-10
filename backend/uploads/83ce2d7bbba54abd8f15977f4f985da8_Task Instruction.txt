@@ -1,0 +1,51 @@
+Task Instruction — Fix Login API Validation
+Objective
+
+Implement proper validation in the Login API to prevent users from submitting empty email and password fields.
+
+Requirements
+1. Validate Email Field
+Email should not be empty.
+Return an error message if email is missing.
+Validate proper email format if required.
+
+Example:
+
+{
+  "message": "Email is required"
+}
+2. Validate Password Field
+Password should not be empty.
+Return an error message if password is missing.
+
+Example:
+
+{
+  "message": "Password is required"
+}
+3. Handle Invalid Requests
+API should return proper HTTP status codes.
+Use:
+400 Bad Request
+or 422 Unprocessable Entity
+4. Update Login Endpoint
+
+Check validation inside:
+
+/auth/login
+5. Test Cases
+Valid Login
+Correct email and password
+Expected: Login success
+Empty Email
+Email = empty
+Expected: Validation error
+Empty Password
+Password = empty
+Expected: Validation error
+Both Empty
+Email and password empty
+Expected: Validation error
+Expected Outcome
+
+Users should not be able to log in with empty credentials, and the API should return clear validation messages.
